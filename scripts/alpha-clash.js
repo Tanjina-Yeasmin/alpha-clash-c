@@ -11,7 +11,22 @@
 
 // }
 
+function continueGame(){
+    // step-1 Generate a random alphabet
+const alphabet = getARandomAlphabet();
+console.log('Your Random alphabet', alphabet);
+
+// set randomly generated to the screen (sHOW IT)
+const currentAlphabetElement = document.getElementById('current-alphabet');
+currentAlphabetElement.innerText = alphabet;
+
+// set background color
+setBackgroundColorById(alphabet);
+}
+
+
 function play(){
     hideElementById('home-screen')
     showElementById('play-ground');
+    continueGame()
 }
