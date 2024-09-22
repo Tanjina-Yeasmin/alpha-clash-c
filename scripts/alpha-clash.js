@@ -14,6 +14,11 @@ function handleKeyboardkeyupEvent(event){
     const playerPressed = event.key;
 // console.log('player pressed', playerPressed );
 
+// Stop Game
+if(playerPressed === 'Escape'){
+    gameOver();
+}
+
 // get the expected to  press
 const currentAlphabetElement = document.getElementById('current-alphabet');
 const currentAlphabet = currentAlphabetElement.innerText;
@@ -112,5 +117,9 @@ function play(){
         const lastScore = getTextElementValueById('current-score');
         console.log(lastScore);
         setTextElementValueById('last-score', lastScore);
+
+        //  Clear the last selected alphabet highlight
+        const currentAlphabet = getElementTextById('current-alphabet');
+        removeBackgroundColorById(currentAlphabet);
 
     }
