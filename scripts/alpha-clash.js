@@ -56,6 +56,10 @@ else{
     const currentLife = getTextElementValueById('current-life');
     const updatedLife = currentLife - 1;
     setTextElementValueById('current-life', updatedLife);
+    
+    if(updatedLife === 0){
+        gameOver();
+    }
 
 
     // ----------------------------
@@ -88,7 +92,25 @@ setBackgroundColorById(alphabet);
 
 
 function play(){
-    hideElementById('home-screen')
+    // hide everything show only playground
+    hideElementById('home-screen');
+    hideElementById('final-score');
     showElementById('play-ground');
     continueGame()
+
+    // reset score and life 
+    setTextElementValueById('current-life', 5);
+    setTextElementValueById('current-score', 0);
 }
+
+    function gameOver(){
+        hideElementById('play-ground');
+        showElementById('final-score');
+
+        // update final score
+        // step-1: get the final score
+        const lastScore = getTextElementValueById('current-score');
+        console.log(lastScore);
+        setTextElementValueById('last-score', lastScore);
+
+    }
